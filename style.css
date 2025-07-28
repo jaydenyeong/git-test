@@ -1,0 +1,88 @@
+body{
+    font-family:'Segoe UI', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3{
+    text-align: center;
+}
+
+.balance{
+    margin: 20px 0;
+    text-align: center;
+}
+
+.inc-exp-container{
+    display:flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.inc-exp-container > div{
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+    width: 45%;
+    text-align: center;
+}
+
+.money {
+    font-size: 1.2em;
+}
+
+.plus {
+    color: green;
+}
+
+.minus {
+    color: red;
+}
+
+.list li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px solid;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.list li.plus {
+    border-color: green;
+}
+
+.list li.minus {
+    border-color: red;
+}
+
+form input, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #45a049;
+}
