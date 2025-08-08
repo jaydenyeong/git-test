@@ -6,7 +6,9 @@ const form = document.getElementById("form");
 const text = document.getElementById("text");
 const amount = document.getElementById("amount");
 
-let transaction = JSON.parse(localStorage.getItem("transaction")) || [];
+let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+
+form.addEventListener('submit', addTransaction);
 
 function addTransaction(e){
     e.preventDefault();
@@ -15,15 +17,15 @@ function addTransaction(e){
         return;
     }
 
-    const transaction = {
+    const newTransaction = {
         id: Date.now(),
         text: text.value,
         amount: +amount.value
     };
 
-    transaction.push(transaction);
-    addTransactionToDOM(transaction);
-    updateValues();
+    transactions.push(newTransaction);
+    addTransactionToDOM(newTransaction);
+    updateValues(); 
     updateLocalStorage();
     text.value = "";
     amount.value = "";
@@ -41,7 +43,7 @@ function addTransactionToDOM(transaction) {
 }
 
 function updateValues() {
-    const amounts = transaction.map(t => t.amount);
+    const amounts = transactions.map(t => t.amount);
     const total = amounts.reduce((acc, val) => acc + val, 0).toFixed(2);
     const income = amounts.filter(a=> a > 0).reduce((a,b) => a + b.toFixed(2), 0);
     const expense = amounts.filter(a => a < 0).reduce((a, b) => a + b.toFixed(2), 0);
@@ -63,7 +65,7 @@ function updateLocalStorage() {
 
 function init() {
     list.innerHTML = "";
-    transaction.forEach(addTransactionToDOM);
+    transactions.forEach(addTransactionToDOM);
     updateValues();
 }
 
